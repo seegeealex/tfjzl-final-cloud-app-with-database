@@ -147,7 +147,7 @@ def show_exam_result(request, course_id, submission_id):
     for question in questions:
         answers = choices.filter(question=question)
         correct_answers = question.choice_set.filter(is_correct=True)
-        if set(answers) == (correct_answers):
+        if set(answers) == set(correct_answers):
             total_score += question.grade
 
     context = {
